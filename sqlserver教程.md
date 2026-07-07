@@ -330,9 +330,12 @@ WHERE ProductName LIKE '%苹果%'
 
 -- 去除空格后比较
 SELECT * FROM Products WHERE LTRIM(RTRIM(ProductName)) = 'iPhone';
+SELECT * FROM Products WHERE TRIM(ProductName) = 'iPhone';
 
 -- 大小写不敏感（默认）/敏感
 SELECT * FROM Products WHERE ProductName COLLATE Chinese_PRC_CS_AS = 'IPHONE'; -- 敏感
+-- 默认不区分，三条全部查出
+WHERE ProductName = 'IPHONE';
 ```
 
 ### 本章案例
@@ -624,9 +627,6 @@ SELECT
     UnitPrice - (SELECT AVG(UnitPrice) FROM Products) AS Diff
 FROM Products;
 
--- 行子查询：返回一行
-SELECT * FROM Products
-WHERE (CategoryID, UnitPrice) = (SELECT CategoryID, MIN(UnitPrice) FROM Products GROUP BY CategoryID);
 
 -- 表子查询：返回多行多列
 SELECT * FROM Products
@@ -697,6 +697,8 @@ WHERE c.CustomerID IN (SELECT CustomerID FROM TopCustomers);
 ```
 
 ### 5.4 递归 CTE（处理层级数据）
+
+这部分我没看懂。。。。。。。
 
 ```sql
 -- 组织架构表
@@ -877,6 +879,8 @@ GROUP BY GROUPING SETS (
 
 窗口函数是企业开发中非常强大的工具。
 
+这里我也没看懂。。。。
+
 ```sql
 -- 排名函数
 SELECT
@@ -1041,6 +1045,8 @@ WHERE ProductID = 999;
 ### 7.4 MERGE 语句（UPSERT）
 
 MERGE 是强大的批量同步工具。
+
+没看懂。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
 
 ```sql
 -- 同步源表到目标表
