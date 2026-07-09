@@ -204,3 +204,31 @@ INSERT INTO OrderDetails (OrderID, ProductID, UnitPrice, Quantity, Discount) VAL
 (10, 3, 999, 10, 0.05);
 
 PRINT '练习数据库初始化完成！';
+
+
+
+
+
+--------------------------------   第一章   -----------------------
+
+-- 1.查询当前 SQL Server 的版本信息。
+SELECT @@VERSION;
+
+-- 2.查看 SQLExerciseDB 数据库中所有用户表的数量。
+select count(*) from Employees
+
+-- 3.查询 Employees 表的列信息，包括列名、数据类型、是否允许为空。
+SELECT
+    COLUMN_NAME,
+    DATA_TYPE,
+    IS_NULLABLE,
+    CHARACTER_MAXIMUM_LENGTH
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'Employees'
+ORDER BY ORDINAL_POSITION;
+
+-- 4.格式化显示当前日期为 "2024年01月15日" 的格式。
+SELECT FORMAT(GETDATE(), 'yyyy年MM月dd日');
+
+-- 5.查询 Employees 表中所有员工，显示：员工姓名、年龄（周岁）、入职年限。
+select EmployeeName 员工姓名,DATEDIFF(year,BirthDate,GETDATE()) 年龄,DATEDIFF(year,HireDate,GETDATE()) 入职年限 from Employees

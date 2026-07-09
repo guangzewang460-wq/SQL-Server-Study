@@ -1,0 +1,8 @@
+1.
+在建表时，你最好在表名前后加上方框
+create table [Order]
+这样可以防止和系统内的关键字重名
+
+2.
+建表时你可以做一个字段检查，比如性别字段，只能出入男和女时，你可以使用check关键字
+sex nvarchar(1) default（'男'） chech(sex= '男' or sex = '女') not null
