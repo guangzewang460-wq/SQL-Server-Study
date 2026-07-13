@@ -5,4 +5,26 @@ create table [Order]
 
 2.
 建表时你可以做一个字段检查，比如性别字段，只能出入男和女时，你可以使用check关键字
-sex nvarchar(1) default（'男'） chech(sex= '男' or sex = '女') not null
+sex nvarchar(1) default '男' chech(sex= '男' or sex = '女') not null
+
+
+3.
+外键写法
+[DepartmentID] INT FOREIGN KEY REFERENCES [Departments]([DepartmentID])
+
+4. 
+修改表结构
+①添加列
+alter table People add PeopleMail varchar(30)
+②删除列
+alter table People drop column PeopleMail 
+③修改列
+alter table People alter column PeopleMail nvarchar(50)
+
+
+
+
+
+
+
+
